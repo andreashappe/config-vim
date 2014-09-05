@@ -34,6 +34,12 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>g :Ag<Space>
 
+" also would be callable through <Leader>be
+nnoremap <Leader>b :BufExplorer<CR>
+
+" git commands
+nnoremap <Leader>gs :Gstatus<CR>
+
 " copy and paste to clipboard
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -46,7 +52,6 @@ vmap <Leader>P "+P
 nmap <Leader><Leader> V
 
 " try out airline
-" let g:airline_powerline_fonts = 1
 set laststatus=2
 
 " try ultisnips
