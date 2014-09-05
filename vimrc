@@ -48,3 +48,8 @@ nmap <Leader><Leader> V
 " try out airline
 " let g:airline_powerline_fonts = 1
 set laststatus=2
+
+" try ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
