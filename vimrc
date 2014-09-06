@@ -39,6 +39,10 @@ nnoremap <Leader>b :BufExplorer<CR>
 
 " git commands
 nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+
+nnoremap <Leader>t :VroomRunNearestTest<CR>
 
 " copy and paste to clipboard
 vmap <Leader>y "+y
@@ -58,3 +62,7 @@ set laststatus=2
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
+" vroom / vimux
+let g:vroom_use_vimux=1
+let g:vroom_use_spring=1
