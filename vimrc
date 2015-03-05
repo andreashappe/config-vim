@@ -66,3 +66,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 " vroom / vimux
 let g:vroom_use_vimux=1
 let g:vroom_use_spring=1
+
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
