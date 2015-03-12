@@ -4,6 +4,12 @@ filetype plugin indent on
 " we want vim, not vi
 set nocompatible
 
+" automatically reload after writing .vimrc
+au BufWritePost .vimrc so $MYVIMRC
+
+" allow per project configuration files
+set exrc
+
 " some simple programming thingies
 " TODO move this into a filetype plugin?
 syntax on
@@ -68,3 +74,9 @@ let g:vroom_use_vimux=1
 let g:vroom_use_spring=1
 
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
+" Invisible characters
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
+
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=1200
