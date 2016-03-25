@@ -5,9 +5,6 @@
 * ultisnips & vim-snippets -- TextMate-like code snippets, needs python
 * vim-surround -- for changing strings delimiters, etc.
 * vim-fugitive -- for interacting with git
-
-I have installed a couple of plugins only locally as I am not sure that those plugins will be used on all my computers
-
 * syntastic -- automatic syntax checking on save, can be CPU-heavy
 * vim-airline -- nice statusbar, needs 256color terminal
 

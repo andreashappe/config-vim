@@ -1,8 +1,27 @@
-execute pathogen#infect()
-filetype plugin indent on
-
-" we want vim, not vi
+" required by vundle
 set nocompatible
+filetype off
+
+" add runtime path to include Vundle and initalize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" now add plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'skalnik/vim-vroom'
+Plugin 'benmills/vimux'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+
+" reactivate stuff after vundle has completed
+call vundle#end()
+filetype plugin indent on
 
 " automatically reload after writing .vimrc
 au BufWritePost .vimrc so $MYVIMRC
