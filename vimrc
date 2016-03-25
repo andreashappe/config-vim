@@ -8,16 +8,25 @@ call vundle#begin()
 
 " now add plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'skalnik/vim-vroom'
-Plugin 'benmills/vimux'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
+Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
+Plugin 'SirVer/ultisnips'       " use snippets
+Plugin 'honza/vim-snippets'     " use snippets
+Plugin 'scrooloose/syntastic'   " online syntax/lint checker
+Plugin 'bling/vim-airline'      " better status bar
+
+" Ruby (on Rails) specific (am I really using those)
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'skalnik/vim-vroom'      " not sure
+Plugin 'benmills/vimux'         " not sure
+
+" currently not really using
+Plugin 'tpope/vim-fugitive'     " git integration within vim
+Plugin 'tpope/vim-surround'     " not sure
+Plugin 'lervag/vimtex'
+Plugin 'rhysd/vim-grammarous'
 
 " reactivate stuff after vundle has completed
 call vundle#end()
@@ -92,7 +101,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 let g:vroom_use_vimux=1
 let g:vroom_use_spring=1
 
+" fast grep
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
+" grammar check on <leader>gc
+nmap <Leader>gc :GrammarousCheck
 
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
