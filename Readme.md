@@ -13,3 +13,8 @@ And then there's stuff that I'm currently testing, but haven't added them to my 
 * vim-bundler -- needed for vim-rails or vim-ruby-refactoring
 * vim-rails -- lots of rails related stuff which I'm currenlty not really using
 * vim-ruby-refactoring -- sounds interesting, haven't used it yet
+
+# Installation
+
+* open vim
+* :PluginInstall
