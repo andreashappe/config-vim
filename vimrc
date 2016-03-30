@@ -13,7 +13,10 @@ Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
 Plugin 'SirVer/ultisnips'       " use snippets
 Plugin 'honza/vim-snippets'     " use snippets
 Plugin 'scrooloose/syntastic'   " online syntax/lint checker
-Plugin 'bling/vim-airline'      " better status bar
+Plugin 'vim-airline/vim-airline'      " better status bar
+
+" Lots of colorschemes
+Plugin 'flazz/vim-colorschemes'
 
 " Ruby (on Rails) specific (am I really using those)
 Plugin 'tpope/vim-bundler'
