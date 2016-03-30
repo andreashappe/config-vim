@@ -22,5 +22,15 @@
 
 # Installation
 
+* install vundle
+
+~~~
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+~~~
+
 * open vim
 * :PluginInstall
+
+# try stuff
+
+* buffer explorer (<leader>be)

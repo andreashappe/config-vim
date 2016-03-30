@@ -14,6 +14,7 @@ Plugin 'SirVer/ultisnips'       " use snippets
 Plugin 'honza/vim-snippets'     " use snippets
 Plugin 'scrooloose/syntastic'   " online syntax/lint checker
 Plugin 'vim-airline/vim-airline'      " better status bar
+Bundle 'jlanzarotta/bufexplorer' " Buffer explorer
 
 " Lots of colorschemes
 Plugin 'flazz/vim-colorschemes'
@@ -108,7 +109,10 @@ let g:vroom_use_spring=1
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
 " grammar check on <leader>gc
-nmap <Leader>gc :GrammarousCheck
+nmap <Leader>gc :GrammarousCheck<CR>
+
+" latex bindings
+nmap <Leader>lc :Vimtex
 
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
