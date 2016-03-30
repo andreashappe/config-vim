@@ -6,26 +6,30 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" now add plugins
+" system stuff
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'      " better status bar
+
+" navigation, finding, grepping
 Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
-Plugin 'SirVer/ultisnips'       " use snippets
-Plugin 'honza/vim-snippets'     " use snippets
-Plugin 'scrooloose/syntastic'   " online syntax/lint checker
-Plugin 'vim-airline/vim-airline'      " better status bar
 Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
 
-" Lots of colorschemes
-Plugin 'flazz/vim-colorschemes'
+" snippet stuff
+Plugin 'SirVer/ultisnips'       " use snippets
+Plugin 'honza/vim-snippets'     " use snippets
+
+" automatic compilation / syntax checking
+Plugin 'scrooloose/syntastic'   " online syntax/lint checker
 
 " Ruby (on Rails) specific (am I really using those)
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
 
-" currently not really using
+" git-specific stuff (currently not using)
 Plugin 'tpope/vim-fugitive'     " git integration within vim
-Plugin 'tpope/vim-surround'     " not sure
+
+" latex specific stuff
 Plugin 'lervag/vimtex'
 Plugin 'rhysd/vim-grammarous'
 
@@ -47,9 +51,7 @@ set expandtab
 set tabstop=2 shiftwidth=2
 set nowrap
 
-" TODO work a bit on colorscheme, this looks crappy on non-256 color terminals
-set t_Co=256
-colorscheme industry
+" colorscheme desert
 
 " syntastic thingies
 let g:syntastic_c_check_header = 1
