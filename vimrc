@@ -14,7 +14,7 @@ Plugin 'SirVer/ultisnips'       " use snippets
 Plugin 'honza/vim-snippets'     " use snippets
 Plugin 'scrooloose/syntastic'   " online syntax/lint checker
 Plugin 'vim-airline/vim-airline'      " better status bar
-Bundle 'jlanzarotta/bufexplorer' " Buffer explorer
+Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
 
 " Lots of colorschemes
 Plugin 'flazz/vim-colorschemes'
@@ -22,9 +22,6 @@ Plugin 'flazz/vim-colorschemes'
 " Ruby (on Rails) specific (am I really using those)
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
-Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'skalnik/vim-vroom'      " not sure
-Plugin 'benmills/vimux'         " not sure
 
 " currently not really using
 Plugin 'tpope/vim-fugitive'     " git integration within vim
@@ -100,10 +97,6 @@ set laststatus=2
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
-
-" vroom / vimux
-let g:vroom_use_vimux=1
-let g:vroom_use_spring=1
 
 " fast grep
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'

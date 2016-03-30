@@ -22,6 +22,7 @@
 
 # Installation
 
+* install the_silver_searcher (apt-get install / dnf install)
 * install vundle
 
 ~~~
