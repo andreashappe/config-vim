@@ -14,6 +14,9 @@ Plugin 'vim-airline/vim-airline'      " better status bar
 Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
 Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
+Plugin 'Shougo/unite.vim'       " test against strp
+Plugin 'scrooloose/nerdtree'    " test nerdtree
+Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
 
 " snippet stuff
 Plugin 'SirVer/ultisnips'       " use snippets
@@ -28,6 +31,9 @@ Plugin 'tpope/vim-rails'
 
 " git-specific stuff (currently not using)
 Plugin 'tpope/vim-fugitive'     " git integration within vim
+
+" make commenting easier
+Plugin 'tpope/vim-commentary'
 
 " latex specific stuff
 Plugin 'lervag/vimtex'

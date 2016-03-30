@@ -35,3 +35,4 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # try stuff
 
 * buffer explorer (<leader>be)
+* "gc(c)" to comment out stuff
