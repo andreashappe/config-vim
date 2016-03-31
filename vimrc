@@ -17,6 +17,7 @@ Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
 Plugin 'Shougo/unite.vim'       " test against strp
 Plugin 'scrooloose/nerdtree'    " test nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
+Plugin 'majutsushi/tagbar'
 
 " snippet stuff
 Plugin 'SirVer/ultisnips'       " use snippets
@@ -120,3 +121,9 @@ set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=1200
+
+" be a bit sadistic
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
