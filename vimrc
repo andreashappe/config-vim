@@ -19,6 +19,14 @@ Plugin 'scrooloose/nerdtree'    " test nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
 Plugin 'majutsushi/tagbar'
 
+" Java Stuf (Just use ^X^O for completion)
+Plugin 'artur-shaik/vim-javacomplete2'
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" markdown stuff
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 " snippet stuff
 Plugin 'SirVer/ultisnips'       " use snippets
 Plugin 'honza/vim-snippets'     " use snippets
@@ -127,3 +135,6 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+
+" config for markdown
+let g:vim_markdown_folding_disabled = 1
