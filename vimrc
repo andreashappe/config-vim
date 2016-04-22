@@ -145,3 +145,10 @@ noremap  <buffer> <silent> $ g$
 
 " config for markdown
 let g:vim_markdown_folding_disabled = 1
+
+if has('gui_running')
+  set guioptions-=T  " no toolbar
+  colorscheme desert
+else
+  " something for console Vim
+endif
