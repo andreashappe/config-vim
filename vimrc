@@ -16,11 +16,10 @@ Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
 Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
 Plugin 'scrooloose/nerdtree'    " test nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
-Plugin 'majutsushi/tagbar' "test tagbar"
+Plugin 'majutsushi/tagbar' "test tagbar
 
 " Java Stuf (Just use ^X^O for completion)
 Plugin 'artur-shaik/vim-javacomplete2'
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " markdown stuff
 Plugin 'godlygeek/tabular'
