@@ -14,10 +14,9 @@ Plugin 'vim-airline/vim-airline'      " better status bar
 Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
 Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
-Plugin 'Shougo/unite.vim'       " test against strp
 Plugin 'scrooloose/nerdtree'    " test nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
-Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar' "test tagbar"
 
 " Java Stuf (Just use ^X^O for completion)
 Plugin 'artur-shaik/vim-javacomplete2'
@@ -54,19 +53,14 @@ filetype plugin indent on
 
 " automatically reload after writing .vimrc
 au BufWritePost .vimrc so $MYVIMRC
+au BufWritePost vimrc so $MYVIMRC
 
 " allow per project configuration files
 set exrc
 
 " some simple programming thingies
-" TODO move this into a filetype plugin?
 syntax on
 set number
-set expandtab
-set tabstop=2 shiftwidth=2
-set nowrap
-
-" colorscheme desert
 
 " syntastic thingies
 let g:syntastic_c_check_header = 1
@@ -121,9 +115,6 @@ let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 " grammar check on <leader>gc
 nmap <Leader>gc :GrammarousCheck<CR>
 
-" latex bindings
-nmap <Leader>lc :Vimtex
-
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
@@ -135,13 +126,8 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-
-" improve line-wrapping
-set wrap
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-noremap  <buffer> <silent> 0 g0
-noremap  <buffer> <silent> $ g$
+nnoremap <PageUp> <nop>
+nnoremap <PageDown> <nop>
 
 " config for markdown
 let g:vim_markdown_folding_disabled = 1
