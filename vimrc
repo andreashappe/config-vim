@@ -14,8 +14,6 @@ Plugin 'vim-airline/vim-airline'      " better status bar
 Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
 Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
-Plugin 'scrooloose/nerdtree'    " test nerdtree
-Plugin 'Xuyuanp/nerdtree-git-plugin' "test nerdtree
 Plugin 'majutsushi/tagbar' "test tagbar
 
 " Java Stuf (Just use ^X^O for completion)
@@ -45,6 +43,8 @@ Plugin 'tpope/vim-commentary'
 " latex specific stuff
 Plugin 'lervag/vimtex'
 Plugin 'rhysd/vim-grammarous'
+
+Plugin 'tpope/vim-vinegar'
 
 " reactivate stuff after vundle has completed
 call vundle#end()
@@ -137,3 +137,12 @@ if has('gui_running')
 else
   " something for console Vim
 endif
+
+" use netrw (builtin) instead of Nerdtree
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_winsize = -28
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'  " --> I want line numbers on the netrw buffer
+nnoremap <silent> <leader>k :Lexplore<cr>
