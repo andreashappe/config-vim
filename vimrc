@@ -102,6 +102,7 @@ nmap <Leader><Leader> V
 
 " try out airline
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
 
 " try ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
