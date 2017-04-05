@@ -1,69 +1,68 @@
 " required by vundle
 set nocompatible
-filetype off
 
-" add runtime path to include Vundle and initalize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-" system stuff
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'      " better status bar
+call plug#begin('~/.vim/plugged')
+
+" get sensible default settings
+Plug 'tpope/vim-sensible'
+
+" airline stuff
+Plug 'vim-airline/vim-airline'             " better status bar
+Plug 'vim-airline/vim-airline-themes'      " better status bar
 
 " navigation, finding, grepping
-Plugin 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
-Plugin 'kien/ctrlp.vim'         " TextMate inspired goto file
-Plugin 'jlanzarotta/bufexplorer' " Buffer explorer
-Plugin 'majutsushi/tagbar' "test tagbar
-
-" Java Stuf (Just use ^X^O for completion)
-Plugin 'artur-shaik/vim-javacomplete2'
-
-" markdown stuff
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
+Plug 'kien/ctrlp.vim'         " TextMate inspired goto file
+Plug 'majutsushi/tagbar' 	"test tagbar
 
 " snippet stuff
-Plugin 'SirVer/ultisnips'       " use snippets
-Plugin 'honza/vim-snippets'     " use snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" VimWiki
+Plug 'vimwiki/vimwiki'
 
 " automatic compilation / syntax checking
-Plugin 'scrooloose/syntastic'   " online syntax/lint checker
-
-" Ruby (on Rails) specific (am I really using those)
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
+Plug 'w0rp/ale'
 
 " git-specific stuff (currently not using)
-Plugin 'tpope/vim-fugitive'     " git integration within vim
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " make commenting easier
-Plugin 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
+
+
+
+"" Programming language specific stuff
+
+" Java Stuff (Just use ^X^O for completion)
+Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
+
+" markdown stuff
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+" Ruby (on Rails) specific (am I really using those)
+Plug 'tpope/vim-bundler', {'for': 'ruby'}
+Plug 'tpope/vim-rails', {'for': 'ruby'}
 
 " latex specific stuff
-Plugin 'lervag/vimtex'
-Plugin 'rhysd/vim-grammarous'
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'rhysd/vim-grammarous'
 
-Plugin 'tpope/vim-vinegar'
+call plug#end()
 
-" reactivate stuff after vundle has completed
-call vundle#end()
-filetype plugin indent on
 
-" automatically reload after writing .vimrc
-au BufWritePost .vimrc so $MYVIMRC
-au BufWritePost vimrc so $MYVIMRC
+
+"" real configuration
 
 " allow per project configuration files
 set exrc
-
-" some simple programming thingies
-syntax on
-set number
-
-" syntastic thingies
-let g:syntastic_c_check_header = 1
-let g:syntastic_c_no_default_include_dirs = 1
 
 " improve search behaviour
 set hlsearch
@@ -79,15 +78,10 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>g :Ag<Space>
 
-" also would be callable through <Leader>be
-nnoremap <Leader>b :BufExplorer<CR>
-
 " git commands
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gc :Gcommit<CR>
-
-nnoremap <Leader>t :VroomRunNearestTest<CR>
 
 " copy and paste to clipboard
 vmap <Leader>y "+y
@@ -97,8 +91,15 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+" buffer management
+nmap <Leader>i :bnext<CR>
+nmap <Leader>o :bprev<CR>
+
 " enter visual mode with <space><space>
 nmap <Leader><Leader> V
+
+" comment currently selected stuff
+nmap <Leader>c :gc
 
 " try out airline
 set laststatus=2
@@ -116,7 +117,7 @@ let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 nmap <Leader>gc :GrammarousCheck<CR>
 
 " Invisible characters
-set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
+" set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=1200
