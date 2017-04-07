@@ -1,7 +1,6 @@
-" required by vundle
 set nocompatible
 
-" Load vim-plug
+" Load vim-plug, plugin should already be setup by git repository
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -23,6 +22,7 @@ Plug 'majutsushi/tagbar' 	"test tagbar
 " snippet stuff
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'Shougo/neocomplete'
 
 " VimWiki
 Plug 'vimwiki/vimwiki'
@@ -37,6 +37,8 @@ Plug 'airblade/vim-gitgutter'
 " make commenting easier
 Plug 'tomtom/tcomment_vim'
 
+" add some on-demand grammar checking
+Plug 'rhysd/vim-grammarous'
 
 
 "" Programming language specific stuff
@@ -53,7 +55,6 @@ Plug 'tpope/vim-rails', {'for': 'ruby'}
 
 " latex specific stuff
 Plug 'lervag/vimtex', {'for': 'tex'}
-Plug 'rhysd/vim-grammarous'
 
 call plug#end()
 
@@ -139,6 +140,9 @@ if has('gui_running')
 else
   " something for console Vim
 endif
+
+" copmile hints
+let g:ale_sign_column_always = 1
 
 " use netrw (builtin) instead of Nerdtree
 let g:netrw_altv = 1
