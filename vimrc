@@ -74,7 +74,7 @@ set smartcase
 let mapleader = "\<Space>"
 
 " some common commands
-nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>O :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>g :Ag<Space>
@@ -118,7 +118,7 @@ let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 nmap <Leader>gc :GrammarousCheck<CR>
 
 " Invisible characters
-" set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=1200
