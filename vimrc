@@ -40,7 +40,6 @@ Plug 'tomtom/tcomment_vim'
 " add some on-demand grammar checking
 Plug 'rhysd/vim-grammarous'
 
-
 "" Programming language specific stuff
 
 " Java Stuff (Just use ^X^O for completion)
@@ -56,11 +55,28 @@ Plug 'tpope/vim-rails', {'for': 'ruby'}
 " latex specific stuff
 Plug 'lervag/vimtex', {'for': 'tex'}
 
+" align with e.g. gl=
+Plug 'tommcdo/vim-lion'
+
+" additional text objects
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-surround'
+
+" navigation through f{char}
+Plug 'rhysd/clever-f.vim'
+
+" show indent markers
+Plug 'Yggdroot/indentLine'
+
+" multiple extensions for different programming languages
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
-
-
 "" real configuration
+
+" vim-lion
+let g:lion_squeeze_spaces = 1
 
 " allow per project configuration files
 set exrc
@@ -113,6 +129,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
 " fast grep
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
+" show indent markers
+let g:indentLine_faster = 1
+let g:indentLine_setConceal = 0
 
 " grammar check on <leader>gc
 nmap <Leader>gc :GrammarousCheck<CR>
