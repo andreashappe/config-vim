@@ -17,7 +17,7 @@ Plug 'vim-airline/vim-airline-themes'      " better status bar
 " navigation, finding, grepping
 Plug 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plug 'kien/ctrlp.vim'         " TextMate inspired goto file
-Plug 'majutsushi/tagbar' 	"test tagbar
+Plug 'majutsushi/tagbar'      "test tagbar
 
 " snippet stuff
 Plug 'SirVer/ultisnips'
