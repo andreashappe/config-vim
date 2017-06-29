@@ -10,14 +10,17 @@ call plug#begin('~/.vim/plugged')
 " get sensible default settings
 Plug 'tpope/vim-sensible'
 
-" airline stuff
+" user interface enhancements
 Plug 'vim-airline/vim-airline'             " better status bar
 Plug 'vim-airline/vim-airline-themes'      " better status bar
+Plug 'airblade/vim-gitgutter'              " git sidebar
+Plug 'majutsushi/tagbar'      		   " test tagbar
 
 " navigation, finding, grepping
 Plug 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
 Plug 'kien/ctrlp.vim'         " TextMate inspired goto file
-Plug 'majutsushi/tagbar'      "test tagbar
+Plug 'tpope/vim-surround'     " surround text objects (need to look-up)
+Plug 'rhysd/clever-f.vim'     " navigation through f{char}
 
 " snippet stuff
 Plug 'SirVer/ultisnips'
@@ -27,49 +30,19 @@ Plug 'Shougo/neocomplete'
 " VimWiki
 Plug 'vimwiki/vimwiki'
 
-" automatic compilation / syntax checking
-Plug 'w0rp/ale'
+" Testing out some new features
+Plug 'w0rp/ale' " automatic compilation / syntax checking
+Plug 'tpope/vim-fugitive' " git-specific stuff (currently not using)
+Plug 'tomtom/tcomment_vim' " make commenting easier
+Plug 'tommcdo/vim-lion' " align with e.g. gl=
 
-" git-specific stuff (currently not using)
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" make commenting easier
-Plug 'tomtom/tcomment_vim'
-
-" add some on-demand grammar checking
-Plug 'rhysd/vim-grammarous'
-
-"" Programming language specific stuff
-
-" Java Stuff (Just use ^X^O for completion)
-Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
-
-" markdown stuff
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-
-" Ruby (on Rails) specific (am I really using those)
-Plug 'tpope/vim-bundler', {'for': 'ruby'}
-Plug 'tpope/vim-rails', {'for': 'ruby'}
-
-" latex specific stuff
-Plug 'lervag/vimtex', {'for': 'tex'}
-
-" align with e.g. gl=
-Plug 'tommcdo/vim-lion'
-
-" additional text objects
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-surround'
-
-" navigation through f{char}
-Plug 'rhysd/clever-f.vim'
-
-" show indent markers
-Plug 'Yggdroot/indentLine'
-
-" multiple extensions for different programming languages
-Plug 'sheerun/vim-polyglot'
+" Programming language stuff
+Plug 'sheerun/vim-polyglot'   " multiple extensions for different
+                              " programming languages (includes vim-markdown)
+Plug 'lervag/vimtex', {'for': 'tex'}  " latex specific stuff
+Plug 'tpope/vim-bundler', {'for': 'ruby'} " Ruby (on Rails) specific (am I really using those)
+Plug 'tpope/vim-rails', {'for': 'ruby'} " Ruby (on Rails) specific (am I really using those)
+Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'} " Java Stuff (Just use ^X^O for completion)
 
 call plug#end()
 
@@ -130,13 +103,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 " fast grep
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
-" show indent markers
-let g:indentLine_faster = 1
-let g:indentLine_setConceal = 0
-
-" grammar check on <leader>gc
-nmap <Leader>gc :GrammarousCheck<CR>
-
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 
@@ -161,7 +127,7 @@ else
   " something for console Vim
 endif
 
-" copmile hints
+" compile hints
 let g:ale_sign_column_always = 1
 
 " use netrw (builtin) instead of Nerdtree
