@@ -1,52 +1,51 @@
 set nocompatible
 
-" Load vim-plug, plugin should already be setup by git repository
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
-
-call plug#begin('~/.vim/plugged')
+" use minpac (which is a plugin manager built on top of vim8's package manager
+packadd minpac
+call minpac#init()
 
 " get sensible default settings
-Plug 'tpope/vim-sensible'
+call minpac#add('tpope/vim-sensible')
 
 " user interface enhancements
-Plug 'vim-airline/vim-airline'             " better status bar
-Plug 'vim-airline/vim-airline-themes'      " better status bar
-Plug 'airblade/vim-gitgutter'              " git sidebar
-Plug 'majutsushi/tagbar'      		   " test tagbar
+call minpac#add('vim-airline/vim-airline')             " better status bar
+call minpac#add('vim-airline/vim-airline-themes')      " better status bar
+call minpac#add('airblade/vim-gitgutter')              " git sidebar
+call minpac#add('majutsushi/tagbar')   		   " test tagbar
 
 " navigation, finding, grepping
-Plug 'rking/ag.vim'           " fast grep replacement, need the_silver_surfer
-Plug 'kien/ctrlp.vim'         " TextMate inspired goto file
-Plug 'tpope/vim-surround'     " surround text objects (need to look-up)
-Plug 'rhysd/clever-f.vim'     " navigation through f{char}
+call minpac#add('rking/ag.vim')           " fast grep replacement, need the_silver_surfer
+call minpac#add('kien/ctrlp.vim')         " TextMate inspired goto file
+call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
+call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
 
 " snippet stuff
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Shougo/neocomplete'
+call minpac#add('SirVer/ultisnips')
+call minpac#add('honza/vim-snippets')
+call minpac#add('Shougo/neocomplete')
 
 " VimWiki
-Plug 'vimwiki/vimwiki'
+call minpac#add('vimwiki/vimwiki')
 
 " Testing out some new features
-Plug 'w0rp/ale' " automatic compilation / syntax checking
-Plug 'tpope/vim-fugitive' " git-specific stuff (currently not using)
-Plug 'tomtom/tcomment_vim' " make commenting easier
-Plug 'tommcdo/vim-lion' " align with e.g. gl=
+call minpac#add('w0rp/ale') " automatic compilation / syntax checking
+call minpac#add('tpope/vim-fugitive') " git-specific stuff (currently not using)
+call minpac#add('tomtom/tcomment_vim') " make commenting easier
+call minpac#add('tommcdo/vim-lion') " align with e.g. gl=
 
 " Programming language stuff
-Plug 'sheerun/vim-polyglot'   " multiple extensions for different
+call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
                               " programming languages (includes vim-markdown)
-Plug 'lervag/vimtex', {'for': 'tex'}  " latex specific stuff
-Plug 'tpope/vim-bundler', {'for': 'ruby'} " Ruby (on Rails) specific (am I really using those)
-Plug 'tpope/vim-rails', {'for': 'ruby'} " Ruby (on Rails) specific (am I really using those)
-Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'} " Java Stuff (Just use ^X^O for completion)
-
-call plug#end()
+call minpac#add('lervag/vimtex')  " latex specific stuff
+call minpac#add('tpope/vim-bundler') " Ruby (on Rails) specific (am I really using those)
+call minpac#add('tpope/vim-rails') " Ruby (on Rails) specific (am I really using those)
+call minpac#add('artur-shaik/vim-javacomplete2') " Java Stuff (Just use ^X^O for completion)
 
 "" real configuration
+
+" add some shortcuts for minpac
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
 
 " vim-lion
 let g:lion_squeeze_spaces = 1
