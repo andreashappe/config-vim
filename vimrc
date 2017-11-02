@@ -140,3 +140,8 @@ call minpac#add('tpope/vim-dispatch')
 call minpac#add('radenling/vim-dispatch-neovim')
 
 call minpac#add('JalaiAmitahl/maven-compiler.vim')
+call minpac#add('tfnico/vim-gradle')
+
+" add some testing support
+call minpac#add('janko-m/vim-test')
+let test#strategy = "dispatch"
