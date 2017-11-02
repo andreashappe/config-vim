@@ -137,3 +137,9 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = -28
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'  " --> I want line numbers on the netrw buffer
 nnoremap <silent> <leader>k :Lexplore<cr>
+
+" work with quickfix
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('radenling/vim-dispatch-neovim')
+
+call minpac#add('JalaiAmitahl/maven-compiler.vim')
