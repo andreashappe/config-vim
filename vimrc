@@ -14,7 +14,7 @@ call minpac#add('airblade/vim-gitgutter')              " git sidebar
 call minpac#add('majutsushi/tagbar')   		   " test tagbar
 
 " navigation, finding, grepping
-call minpac#add('rking/ag.vim')           " fast grep replacement, need the_silver_surfer
+call minpac#add('mhinz/vim-grepper')           " fast grep replacement, need the_silver_surfer
 call minpac#add('kien/ctrlp.vim')         " TextMate inspired goto file
 call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
 call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
@@ -83,9 +83,6 @@ vmap <Leader>P "+P
 " buffer management
 nmap <Leader>i :bnext<CR>
 nmap <Leader>o :bprev<CR>
-
-" enter visual mode with <space><space>
-nmap <Leader><Leader> V
 
 " comment currently selected stuff
 nmap <Leader>c :gc
