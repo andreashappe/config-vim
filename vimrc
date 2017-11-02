@@ -13,7 +13,7 @@ call minpac#add('tpope/vim-sensible')
 
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
-call minpac#add('vim-airline/vim-airline-themes')      " better status bar
+" call minpac#add('vim-airline/vim-airline-themes')      " better status bar
 
 " try out airline
 set laststatus=2
@@ -27,6 +27,7 @@ call minpac#add('mhinz/vim-grepper')           " fast grep replacement, need the
 
 " TextMate inspired goto file
 call minpac#add('kien/ctrlp.vim')
+call minpac#add('junegunn/fzf.vim')
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
 call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
