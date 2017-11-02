@@ -4,18 +4,31 @@ set nocompatible
 packadd minpac
 call minpac#init()
 
+" add some shortcuts for minpac
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+
 " get sensible default settings
 call minpac#add('tpope/vim-sensible')
 
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
 call minpac#add('vim-airline/vim-airline-themes')      " better status bar
+
+" try out airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
 call minpac#add('airblade/vim-gitgutter')              " git sidebar
 call minpac#add('majutsushi/tagbar')   		   " test tagbar
 
 " navigation, finding, grepping
 call minpac#add('mhinz/vim-grepper')           " fast grep replacement, need the_silver_surfer
-call minpac#add('kien/ctrlp.vim')         " TextMate inspired goto file
+
+" TextMate inspired goto file
+call minpac#add('kien/ctrlp.vim')
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+
 call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
 call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
 
@@ -24,31 +37,39 @@ call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
 call minpac#add('Shougo/neocomplete')
 
+" try ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
 " VimWiki
 call minpac#add('vimwiki/vimwiki')
 
 " Testing out some new features
 call minpac#add('w0rp/ale') " automatic compilation / syntax checking
-call minpac#add('tpope/vim-fugitive') " git-specific stuff (currently not using)
-call minpac#add('tomtom/tcomment_vim') " make commenting easier
-call minpac#add('tommcdo/vim-lion') " align with e.g. gl=
+
+" git-specific stuff (currently not using)
+call minpac#add('tpope/vim-fugitive')
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+
+" make commenting easier
+call minpac#add('tomtom/tcomment_vim')
+nmap <Leader>c :gc
 
 " Programming language stuff
 call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
-                              " programming languages (includes vim-markdown)
+                                          " programming languages (includes vim-markdown)
+					  "
 call minpac#add('lervag/vimtex')  " latex specific stuff
-call minpac#add('tpope/vim-bundler') " Ruby (on Rails) specific (am I really using those)
-call minpac#add('tpope/vim-rails') " Ruby (on Rails) specific (am I really using those)
-call minpac#add('artur-shaik/vim-javacomplete2') " Java Stuff (Just use ^X^O for completion)
 
-"" real configuration
+" ruby and ror stuff
+call minpac#add('tpope/vim-bundler')
+call minpac#add('tpope/vim-rails')
 
-" add some shortcuts for minpac
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
-
-" vim-lion
-let g:lion_squeeze_spaces = 1
+" java stuff
+call minpac#add('artur-shaik/vim-javacomplete2') " Just use ^X^O for completion
 
 " allow per project configuration files
 set exrc
@@ -60,17 +81,13 @@ set smartcase
 
 " use space as LEADER!
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>" " used by vimtex
 
 " some common commands
 nnoremap <Leader>O :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>g :Ag<Space>
-
-" git commands
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gc :Gcommit<CR>
 
 " copy and paste to clipboard
 vmap <Leader>y "+y
@@ -83,21 +100,6 @@ vmap <Leader>P "+P
 " buffer management
 nmap <Leader>i :bnext<CR>
 nmap <Leader>o :bprev<CR>
-
-" comment currently selected stuff
-nmap <Leader>c :gc
-
-" try out airline
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-
-" try ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
-
-" fast grep
-let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
 " Invisible characters
 set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
