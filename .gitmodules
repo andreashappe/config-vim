@@ -1,3 +1,6 @@
 [submodule "pack/minpac/opt/minpac"]
 	path = pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
+[submodule "UltiSnips"]
+	path = UltiSnips
+	url = ssh://ah@127.0.0.1:2222/home/ah/vim-snippets.git/

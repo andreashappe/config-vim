@@ -13,7 +13,6 @@ call minpac#add('tpope/vim-sensible')
 
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
-" call minpac#add('vim-airline/vim-airline-themes')      " better status bar
 
 " try out airline
 set laststatus=2
@@ -36,9 +35,12 @@ call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
 " snippet stuff
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
-call minpac#add('Shougo/neocomplete')
+call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('roxma/nvim-yarp')
+call minpac#add('roxma/vim-hug-neovim-rpc')
 
-" try ultisnips
+let g:deoplete#enable_at_startup = 1
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
@@ -79,6 +81,9 @@ set exrc
 set hlsearch
 set incsearch
 set smartcase
+
+" use match-up
+call minpac#add('andymass/matchup.vim')
 
 " use space as LEADER!
 let mapleader = "\<Space>"
