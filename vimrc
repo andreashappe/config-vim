@@ -1,4 +1,6 @@
 set nocompatible
+filetype plugin indent on
+syntax on
 
 " use minpac (which is a plugin manager built on top of vim8's package manager
 packadd minpac
@@ -32,14 +34,28 @@ let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
 call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
 
+" grammar stuff
+call minpac#add('rhysd/vim-grammarous')
+
 " snippet stuff
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('roxma/nvim-yarp')
-call minpac#add('roxma/vim-hug-neovim-rpc')
 
+call minpac#add('Shougo/deoplete.nvim')
+if !has('nvim')
+	call minpac#add('roxma/nvim-yarp')
+	call minpac#add('roxma/vim-hug-neovim-rpc')
+endif
 let g:deoplete#enable_at_startup = 1
+
+let g:completor_tex_omni_trigger =
+        \   '\\(?:'
+        \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+        \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+        \  .  '|hyperref\s*\[[^]]*'
+        \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+        \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
+        \  .')'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -66,6 +82,8 @@ call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
                                           " programming languages (includes vim-markdown)
 					  "
 call minpac#add('lervag/vimtex')  " latex specific stuff
+let g:polyglot_disabled = ['latex']
+let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 " ruby and ror stuff
 call minpac#add('tpope/vim-bundler')
