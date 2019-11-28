@@ -31,9 +31,6 @@ call minpac#add('kien/ctrlp.vim')
 call minpac#add('junegunn/fzf.vim')
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
-call minpac#add('tpope/vim-surround')     " surround text objects (need to look-up)
-call minpac#add('rhysd/clever-f.vim')     " navigation through f{char}
-
 " grammar stuff
 call minpac#add('rhysd/vim-grammarous')
 
@@ -158,3 +155,6 @@ call minpac#add('radenling/vim-dispatch-neovim')
 " add some testing support
 call minpac#add('janko-m/vim-test')
 let test#strategy = "dispatch"
+
+" integrate sytem console
+vnoremap y "+y
