@@ -61,9 +61,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
-" VimWiki
-call minpac#add('vimwiki/vimwiki')
-
 " Testing out some new features
 call minpac#add('w0rp/ale') " automatic compilation / syntax checking
 
@@ -72,10 +69,6 @@ call minpac#add('tpope/vim-fugitive')
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gc :Gcommit<CR>
-
-" make commenting easier
-call minpac#add('tomtom/tcomment_vim')
-nmap <Leader>c :gc
 
 " Programming language stuff
 call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
@@ -88,9 +81,6 @@ let g:vimtex_compiler_latexmk = {'callback' : 0}
 " ruby and ror stuff
 call minpac#add('tpope/vim-bundler')
 call minpac#add('tpope/vim-rails')
-
-" java stuff
-call minpac#add('artur-shaik/vim-javacomplete2') " Just use ^X^O for completion
 
 " allow per project configuration files
 set exrc
@@ -164,9 +154,6 @@ nnoremap <silent> <leader>k :Lexplore<cr>
 " work with quickfix
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('radenling/vim-dispatch-neovim')
-
-call minpac#add('JalaiAmitahl/maven-compiler.vim')
-call minpac#add('tfnico/vim-gradle')
 
 " add some testing support
 call minpac#add('janko-m/vim-test')
