@@ -16,6 +16,9 @@ call minpac#add('tpope/vim-sensible')
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
 
+" improve efficiency
+call minpac#add('AlphaMycelium/pathfinder.vim')
+
 " try out airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -57,6 +60,10 @@ let g:completor_tex_omni_trigger =
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
+" some spelling fixes
+set spelllang=de
+autocmd FileType tex setlocal spell
 
 " Testing out some new features
 call minpac#add('w0rp/ale') " automatic compilation / syntax checking
@@ -155,6 +162,3 @@ call minpac#add('radenling/vim-dispatch-neovim')
 " add some testing support
 call minpac#add('janko-m/vim-test')
 let test#strategy = "dispatch"
-
-" integrate sytem console
-vnoremap y "+y
