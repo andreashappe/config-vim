@@ -24,12 +24,9 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 call minpac#add('airblade/vim-gitgutter')              " git sidebar
-call minpac#add('majutsushi/tagbar')   		   " test tagbar
-
-" navigation, finding, grepping
-call minpac#add('mhinz/vim-grepper')           " fast grep replacement, need the_silver_surfer
 
 " TextMate inspired goto file
+" TODO: isn't ctrlp and fzf redundant?
 call minpac#add('kien/ctrlp.vim')
 call minpac#add('junegunn/fzf.vim')
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
