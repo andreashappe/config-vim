@@ -15,8 +15,6 @@
 
 ## should be using (added, but not sure if I keep them)
 
-* vim-surround -- for changing strings delimiters, etc.
-* vim-ruby-refactoring -- sounds interesting, haven't used it yet
 * grammarous
 
 # Installation
