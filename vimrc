@@ -16,9 +16,6 @@ call minpac#add('tpope/vim-sensible')
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
 
-" improve efficiency
-call minpac#add('AlphaMycelium/pathfinder.vim')
-
 " try out airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -78,6 +75,8 @@ call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
 call minpac#add('lervag/vimtex')  " latex specific stuff
 let g:polyglot_disabled = ['latex']
 let g:vimtex_compiler_latexmk = {'callback' : 0}
+let g:tex_flavor = 'latex'
+
 
 " ruby and ror stuff
 call minpac#add('tpope/vim-bundler')
