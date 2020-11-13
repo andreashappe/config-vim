@@ -15,18 +15,15 @@ call minpac#add('tpope/vim-sensible')
 
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
-
-" try out airline
+call minpac#add('vim-airline/vim-airline-themes')             " better status bar
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
-call minpac#add('airblade/vim-gitgutter')              " git sidebar
-
 " TextMate inspired goto file
-" TODO: isn't ctrlp and fzf redundant?
-call minpac#add('kien/ctrlp.vim')
+call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
-let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+call minpac#add('pechorin/any-jump.vim')
+nnoremap <leader>j :AnyJump<CR>
 
 " grammar stuff
 call minpac#add('rhysd/vim-grammarous')
@@ -35,21 +32,40 @@ call minpac#add('rhysd/vim-grammarous')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
 
-call minpac#add('Shougo/deoplete.nvim')
-if !has('nvim')
-	call minpac#add('roxma/nvim-yarp')
-	call minpac#add('roxma/vim-hug-neovim-rpc')
-endif
-let g:deoplete#enable_at_startup = 1
+" lots of coc stuff
+call minpac#add('neoclide/coc.nvim')
 
-let g:completor_tex_omni_trigger =
-        \   '\\(?:'
-        \  .   '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-        \  .  '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-        \  .  '|hyperref\s*\[[^]]*'
-        \  .  '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-        \  .  '|(?:include(?:only)?|input)\s*\{[^}]*'
-        \  .')'
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+nmap <Leader>e :CocCommand explorer<CR>
+nnoremap <leader>e :CocCommand explorer<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+
+" adaptive search function
+function! s:GoToDefinition()
+    if CocAction('jumpDefinition')
+      return v:true
+    endif
+
+    let ret = execute("silent! normal \<C-]>")
+    if ret =~ "Error" || ret =~ "错误"
+      call searchdecl(expand('<cword>'))
+    endif
+endfunction
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -62,7 +78,8 @@ autocmd FileType tex setlocal spell
 " Testing out some new features
 call minpac#add('w0rp/ale') " automatic compilation / syntax checking
 
-" git-specific stuff (currently not using)
+" git-specific stuff
+call minpac#add('airblade/vim-gitgutter')              " git sidebar
 call minpac#add('tpope/vim-fugitive')
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>ga :Gwrite<CR>
@@ -71,19 +88,12 @@ nnoremap <Leader>gc :Gcommit<CR>
 " Programming language stuff
 call minpac#add('sheerun/vim-polyglot')   " multiple extensions for different
                                           " programming languages (includes vim-markdown)
-					  "
 call minpac#add('lervag/vimtex')  " latex specific stuff
 let g:polyglot_disabled = ['latex']
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 let g:tex_flavor = 'latex'
 
-
-" ruby and ror stuff
-call minpac#add('tpope/vim-bundler')
-call minpac#add('tpope/vim-rails')
-
-" allow per project configuration files
-set exrc
+set exrc " allow per project configuration files
 
 " improve search behaviour
 set hlsearch
@@ -96,12 +106,6 @@ call minpac#add('andymass/matchup.vim')
 " use space as LEADER!
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>" " used by vimtex
-
-" some common commands
-nnoremap <Leader>O :CtrlP<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>g :Ag<Space>
 
 " copy and paste to clipboard
 vmap <Leader>y "+y
