@@ -38,23 +38,24 @@ call minpac#add('honza/vim-snippets')
 ino <silent> <c-x><c-t> <c-r>=<sid>ulti_complete()<cr>
 
 fu! s:ulti_complete() abort
-      if empty(UltiSnips#SnippetsInCurrentScope(1))
-                return ''
-                    endif
-                        let word_to_complete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
-                            let contain_word = 'stridx(v:val, word_to_complete)>=0'
-                                let candidates = map(filter(keys(g:current_ulti_dict_info), contain_word),
-                                                   \  "{
-                                                   \      'word': v:val,
-                                                   \      'menu': '[snip] '. g:current_ulti_dict_info[v:val]['description'],
-                                                   \      'dup' : 1,
-                                                   \   }")
-                                    let from_where = col('.') - len(word_to_complete)
-                                        if !empty(candidates)
-                                                  call complete(from_where, candidates)
-                                                      endif
-                                                          return ''
-                                                        endfu
+  if empty(UltiSnips#SnippetsInCurrentScope(1))
+    return ''
+  endif
+    let word_to_complete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
+    let contain_word = 'stridx(v:val, word_to_complete)>=0'
+    let candidates = map(filter(keys(g:current_ulti_dict_info), contain_word),
+    \  "{
+    \      'word': v:val,
+    \      'menu': '[snip] '. g:current_ulti_dict_info[v:val]['description'],
+    \      'dup' : 1,
+    \   }")
+
+    let from_where = col('.') - len(word_to_complete)
+    if !empty(candidates)
+      call complete(from_where, candidates)
+    endif
+    return ''
+endfu
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -62,31 +63,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-nmap <Leader>e :CocCommand explorer<CR>
-nnoremap <leader>e :CocCommand explorer<CR>
-
-nmap <silent> gd <Plug>(coc-definition)
-
-" adaptive search function
-function! s:GoToDefinition()
-    if CocAction('jumpDefinition')
-      return v:true
-    endif
-
-    let ret = execute("silent! normal \<C-]>")
-    if ret =~ "Error" || ret =~ "错误"
-      call searchdecl(expand('<cword>'))
-    endif
-endfunction
-
-nmap <silent> gd :call <SID>GoToDefinition()<CR>
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
