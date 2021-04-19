@@ -13,6 +13,9 @@ command! PackClean call minpac#clean()
 " get sensible default settings
 call minpac#add('tpope/vim-sensible')
 
+call minpac#add('arcticicestudio/nord-vim')
+colorscheme nord
+
 " user interface enhancements
 call minpac#add('vim-airline/vim-airline')             " better status bar
 call minpac#add('vim-airline/vim-airline-themes')             " better status bar
@@ -32,8 +35,26 @@ call minpac#add('rhysd/vim-grammarous')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
 
-" lots of coc stuff
-call minpac#add('neoclide/coc.nvim')
+ino <silent> <c-x><c-t> <c-r>=<sid>ulti_complete()<cr>
+
+fu! s:ulti_complete() abort
+      if empty(UltiSnips#SnippetsInCurrentScope(1))
+                return ''
+                    endif
+                        let word_to_complete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
+                            let contain_word = 'stridx(v:val, word_to_complete)>=0'
+                                let candidates = map(filter(keys(g:current_ulti_dict_info), contain_word),
+                                                   \  "{
+                                                   \      'word': v:val,
+                                                   \      'menu': '[snip] '. g:current_ulti_dict_info[v:val]['description'],
+                                                   \      'dup' : 1,
+                                                   \   }")
+                                    let from_where = col('.') - len(word_to_complete)
+                                        if !empty(candidates)
+                                                  call complete(from_where, candidates)
+                                                      endif
+                                                          return ''
+                                                        endfu
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -138,7 +159,6 @@ let g:vim_markdown_folding_disabled = 1
 
 if has('gui_running')
   set guioptions-=T  " no toolbar
-  colorscheme desert
 else
   " something for console Vim
 endif
